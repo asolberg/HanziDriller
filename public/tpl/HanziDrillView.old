@@ -1,0 +1,11 @@
+<div class="selectedhanzilist">
+    <img src="pics/generic.jpg" height="150" width="125" alt="">
+    <h5>Owner: <%= name %></h5>
+    Listname: <%= listname %><br/>
+    Num of Chars: <%= listcontents.length %>
+    <form name="input" action="#hanzidrillstart/<%= _id %>" method="get">
+      Start: <input type="text" name="start"><br>
+      End: <input type="text" name="end">
+      <input type="submit" value="START">
+    </form> 
+</div>

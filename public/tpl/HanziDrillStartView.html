@@ -1,0 +1,18 @@
+<% if (current_iteration == 0 ){
+
+  temp_list = _(listcontents.slice(start,stop)).shuffle()
+  for(var character in temp_list)
+  { %> <hanzispan id="<%= temp_list[character] %>"><%= temp_list[character] %></hanzispan> <% }
+} else {
+
+  temp_list = _(round_wrong_chars).shuffle()
+for(var character in temp_list) { %>
+<hanzispan id="<%= temp_list[character] %>"><%= temp_list[character] %></hanzispan>
+<% }
+}%>
+
+<div class="form-actions">
+<a class="btn btn-primary drilldone">I'm done</a>
+<a class="btn btn-info nextstage">Next Stage</a>
+<a class="btn btn-success reshuffle">Reshuffle</a>
+</div> 

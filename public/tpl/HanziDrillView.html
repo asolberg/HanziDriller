@@ -1,0 +1,88 @@
+<div class="row-fluid">
+
+    <form class="form-horizontal span12">
+
+        <fieldset>
+
+        <%if( Backbone.history.fragment.indexOf("add")==-1){%>
+            <legend>HanziList Details</legend>
+            <% } else { %>
+            <legend>Add New HanziList</legend>
+            <%}%>
+            <br/>
+
+            <div class="row">
+                <div class="span8">
+
+                    <div class="control-group">
+                        <label for="hanzilistId" class="control-label">Id:</label>
+
+                        <div class="controls">
+                            <input id="hanzilistId" name="id" type="text" value="<%= _id === null ? '' : _id %>"
+                                   disabled/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="listname" class="control-label">List Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="listname" name="listname" value="<%= listname %>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    
+        <%if( Backbone.history.fragment.indexOf("add")==-1){%>
+                    <div class="control-group">
+                        <label for="start" class="control-label">Start:</label>
+
+                        <div class="controls">
+                          <input type="text" id="start" name="start" value="0"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="stop" class="control-label">Stop:</label>
+
+                        <div class="controls">
+                          <input type="text" id="stop" name="stop" value="<%= listcontents.length%>"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+                    <% }%>
+                    
+                    
+                    <div class="control-group">
+                        <label for="listcontents" class="control-label">Contents:</label>
+
+                        <div class="controls">
+                            <textarea id="listcontents" name="listcontents" style="width: 90%;" rows="6"><%= listcontents
+                                %></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </fieldset>
+        <div class="form-actions">
+            <a href="#" class="btn btn-primary save">Save</a>
+        <%if( Backbone.history.fragment.indexOf("add")==-1){%>
+            <a href="#" class="btn btn-danger delete">Delete</a>
+            <a href="#hanzidrillstart/<%= _id %>" class="btn btn-success start">Start</a>
+        <% }%>
+        </div>
+    </form>
+
+</div>
+
+<div class="row-fluid status-bar">
+    <div class="span12">
+        <div class="alert alert-success" style="display: none">
+            <b>Success!</b> HanziDrill saved successfully
+        </div>
+    </div>
+</div>
